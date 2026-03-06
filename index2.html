@@ -26,7 +26,7 @@
   </style>
 </head>
 
-<body>
+<body class="bg-slate-100">
   <!-- navbar -->
    <header>
     <div class="navbar py-4 flex justify-between bg-base-100 shadow-sm">
@@ -40,6 +40,40 @@
         <button class="btn btn-primary">+ New Issue</button>
       </div>
    </header>
+
+   <!-- All buttons -->
+   <section>
+    <div class="max-w-9/12 mt-16 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+        <div class="flex gap-3">
+          <button class="btn btn-primary">All</button>
+          <button class="btn btn-outline">Open</button>
+          <button class="btn btn-outline">Closed</button>
+        </div>
+    </div>
+   </section>
+
+   <!-- All issues -->
+    <section>
+      <div class="max-w-9/12 mt-5 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+        <div class="flex gap-3 justify-between">
+          <div class="flex items-center gap-4">
+            <img src="assets/Aperture.png" alt="">
+            <div>
+              <h3 class="text-xl font-medium">50 Issues</h3>
+              <p class="text-lg text-[#64748B]">Track and manage your project issues</p>
+            </div>
+          </div>
+
+          <div class="flex items-center gap-2">
+            <div class="w-4 h-4 bg-green-500 rounded-full"></div>
+            <p>Open</p>
+            <div class="w-4 h-4 bg-purple-500 rounded-full"></div>
+            <p>Closed</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
 </body>
 
 </html>
