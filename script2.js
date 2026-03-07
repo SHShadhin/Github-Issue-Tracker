@@ -42,7 +42,7 @@ const displayAllIssues = allIssues => {
 
     //create new element
     const div = document.createElement('div');
-    div.classList.add('card', 'w-96', 'h-full', 'bg-base-100', 'shadow-sm');
+    div.classList.add('card', 'w-80', 'h-full', 'bg-base-100', 'shadow-sm', 'gap-6');
     div.innerHTML = `
         <div class="card-body ${borderColor}" onclick="openModal(${issues.id})">
           <div class="flex justify-between items-center ">
@@ -56,13 +56,13 @@ const displayAllIssues = allIssues => {
 
           <h2 class="text-xl font-semibold mt-3">${issues.title} </h2>
           <h4 class="text- font-medium mb-3 line-clamp-2 text-[#64748B]">${issues.description}</h4>
-          <h2 class="text-xl font-semibold mt-3">${issues.status} </h2>
+         
           <div class="flex gap-2">
           <button class="flex items-center bg-[#FECACA] text-[#EF4444] py-2 px-3 rounded-3xl font-semibold"> ${issues.labels[0]}</button>
           <button class=" bg-[#FDE68A] text-[#D97706] px-3 py-2 rounded-3xl font-semibold flex items-center gap-1">${issues.labels[1]}</button>
           </div>
 
-          <hr class="w-full my-5">
+          <hr class="border-t border-gray-300 my-4 -mx-6">
 
           <div class="text-[#64748B]">
             <p>${issues.author}</p>
@@ -102,22 +102,6 @@ closeBtn.addEventListener('click', () => {
   displayAllIssues(closedIssues);
 });
 
-// "status": "success",
-// "message": "Issue fetched successfully",
-// "data": {
-// "id": 33,
-// "title": "Add bulk operations support",
-// "description": "Allow users to perform bulk actions like delete, update status on multiple items at once.",
-// "status": "open",
-// "labels": [
-// "enhancement"
-// ],
-// "priority": "low",
-// "author": "bulk_barry",
-// "assignee": "",
-// "createdAt": "2024-02-02T10:00:00Z",
-// "updatedAt": "2024-02-02T10:00:00Z"
-// }
 // for modal details
 const issueModal = document.getElementById('issue_modal');
 const modalTitle = document.getElementById('modalTitle');
@@ -128,6 +112,7 @@ const modalDesc = document.getElementById('modalDesc');
 const bugModal = document.getElementById('bugModal');
 const bugModal2 = document.getElementById('bugModal2');
 const modalPriority = document.getElementById('modalPriority');
+const modalDate = document.getElementById('modalDate');
 
 async function openModal(issueId) {
   // console.log(issueId);// check issue id pacci ki na
@@ -145,6 +130,7 @@ async function openModal(issueId) {
   authorModal.innerText = issueDetails.author;
   modalDesc.innerText = issueDetails.description;
   modalPriority.innerText = issueDetails.priority;
+  modalDate.innerText = issueDetails.priority;
   bugModal.innerText = issueDetails.labels[0];
   bugModal2.innerText = issueDetails.labels[1];
 

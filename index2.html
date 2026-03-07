@@ -36,14 +36,22 @@
       </div>
 
       <div class="flex gap-5 mx-10">
-        <input type="text" placeholder="Search" class="input input-bordered w-24 md:w-auto" />
+        <label class="input">
+          <svg class="h-[1em] opacity-50" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+            <g stroke-linejoin="round" stroke-linecap="round" stroke-width="2.5" fill="none" stroke="currentColor">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="m21 21-4.3-4.3"></path>
+            </g>
+          </svg>
+          <input type="search" required placeholder="Search issues..." />
+        </label>
         <button class="btn btn-primary">+ New Issue</button>
       </div>
    </header>
 
    <!-- All buttons -->
    <section>
-    <div class="max-w-10/12 mt-16 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+    <div class="max-w-11/12 mt-16 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
         <div id="allBtns" class="flex gap-3">
           <button id="all-btn" class="btn btn-primary">All</button>
           <button id="open-btn" class="btn btn-outline">Open</button>
@@ -54,7 +62,7 @@
 
    <!-- All issues -->
     <section>
-      <div class="max-w-10/12 mt-5 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+      <div class="max-w-11/12 mt-5 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
         <div class="flex gap-3 justify-between">
           <div class="flex items-center gap-4">
             <img src="assets/Aperture.png" alt="">
@@ -75,11 +83,11 @@
     </section>
     
     <!-- All cards -->
-     <div id="all-issue-container" class="bg-slate-50 py-10 px-5 max-w-10/12 mx-auto grid grid-cols-3 gap-y-4">
+     <div id="all-issue-container" class="bg-slate-50 py-10 px-5 max-w-11/12 mx-auto grid md:grid-cols-4 grid-cols-1 gap-x-6 gap-y-6">
       <!-- all card dynamically added here -->
      </div>
 
-     
+
     
     <!-- Modal -->
     <dialog id="issue_modal" class="modal">
@@ -94,7 +102,7 @@
         <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
           <span id="modalStatus" class="badge badge-success text-white">Opened</span>
           <span>• Opened by <span id="authorModal">Fahim Ahmed</span></span>
-          <span>• 22/02/2026</span>
+          <span id="modalDate">• 22/02/2026</span>
         </div>
     
         <!-- Labels -->
