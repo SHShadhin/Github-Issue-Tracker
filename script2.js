@@ -21,12 +21,18 @@ const loadAllIssues = () => {
       displayAllIssues(allIssues); // initial load এ সব দেখাবে
     });
 };
+
+
 // display all issues in main page
+
+const issueCount = document.getElementById('isssue-count'); // issue count ke id diye dhore ana hoise
+
 const displayAllIssues = (allIssues) => {
   // console.log(allIssues)
   const allIssueContainer = document.getElementById('all-issue-container');
   allIssueContainer.innerHTML = '';
- 
+  issueCount.textContent = allIssues.length; // issues count er man update kora hoise
+
   allIssues.forEach(issues => {
     const div = document.createElement('div');
     div.innerHTML = `<div class="card w-96 h-full bg-base-100 shadow-sm">
@@ -67,7 +73,7 @@ loadAllIssues();
 
 // issues filtering
 // all button
-const allbtn = document.getElementById('open-btn');
+const allbtn = document.getElementById('all-btn');
 allbtn.addEventListener('click', () => {
   displayAllIssues(allIssues);
 });
