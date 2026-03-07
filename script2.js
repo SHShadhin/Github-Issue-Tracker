@@ -12,13 +12,28 @@ btns.forEach(button => {
   });
 });
 
+// loading spinner
+const loadingSpinner = document.getElementById('loadingSpinner');
+function showLoading() {
+  const allIssueContainer = document.getElementById('all-issue-container');
+  loadingSpinner.classList.remove('hidden');
+  allIssueContainer.classList.add('hidden');
+}
+function hideLoading() {
+  const allIssueContainer = document.getElementById('all-issue-container');
+  loadingSpinner.classList.add('hidden');
+  allIssueContainer.classList.remove('hidden');
+}
+
 // load all issues
 const loadAllIssues = () => {
+  showLoading();
   fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
     .then(data => {
       allIssues = data.data;
       displayAllIssues(allIssues); // initial load এ সব দেখাবে
+      hideLoading();
     });
 };
 
@@ -34,6 +49,7 @@ const displayAllIssues = allIssues => {
 
   allIssues.forEach(issues => {
     // change border color of issues
+    let borderColor = '';
     if (issues.status.toLowerCase() === 'open') {
       borderColor = 'border-t-6 border-green-500 rounded-lg';
     } else {
@@ -42,7 +58,14 @@ const displayAllIssues = allIssues => {
 
     //create new element
     const div = document.createElement('div');
-    div.classList.add('card', 'w-80', 'h-full', 'bg-base-100', 'shadow-sm', 'gap-6');
+    div.classList.add(
+      'card',
+      'w-80',
+      'h-full',
+      'bg-base-100',
+      'shadow-sm',
+      'gap-6',
+    );
     div.innerHTML = `
         <div class="card-body ${borderColor}" onclick="openModal(${issues.id})">
           <div class="flex justify-between items-center ">
@@ -74,6 +97,7 @@ const displayAllIssues = allIssues => {
 
     allIssueContainer.appendChild(div);
   });
+  // hideLoading(); // render sesh hole spinner hide
 };
 
 loadAllIssues();
@@ -82,24 +106,30 @@ loadAllIssues();
 // all button
 const allbtn = document.getElementById('all-btn');
 allbtn.addEventListener('click', () => {
+  showLoading(); // spinner dekhabe
   displayAllIssues(allIssues);
+  hideLoading();
 });
 // Open button
 const openBtn = document.getElementById('open-btn');
 openBtn.addEventListener('click', () => {
+  showLoading(); // spinner dekhabe
   const openIssues = allIssues.filter(
     issue => issue.status.toLowerCase() === 'open',
   );
   displayAllIssues(openIssues); // filtered display
+  hideLoading();
 });
 
 // Close button
 const closeBtn = document.getElementById('close-btn');
 closeBtn.addEventListener('click', () => {
+  showLoading(); // spinner dekhabe
   const closedIssues = allIssues.filter(
     issue => issue.status.toLowerCase() === 'closed',
   );
   displayAllIssues(closedIssues);
+  hideLoading();
 });
 
 // for modal details
@@ -130,9 +160,30 @@ async function openModal(issueId) {
   authorModal.innerText = issueDetails.author;
   modalDesc.innerText = issueDetails.description;
   modalPriority.innerText = issueDetails.priority;
-  modalDate.innerText = issueDetails.priority;
+  modalDate.innerText = issueDetails.createdAt;
   bugModal.innerText = issueDetails.labels[0];
   bugModal2.innerText = issueDetails.labels[1];
 
-   issueModal.showModal(); // modal show koraisi
+  issueModal.showModal(); // modal show koraisi
 }
+
+// search issues
+
+document.getElementById('search-btn').addEventListener('click', function () {
+  const input = document.getElementById('search-input');
+  const searchValue = input.value.trim().toLowerCase();
+  // console.log(searchValue)// check search value;
+
+  fetch(
+    `https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${searchValue}`,
+  )
+    .then(res => res.json())
+    .then(data => {
+      const allIssues = data.data;
+      console.log(allIssues);
+      const filterIssues = allIssues.filter(issue =>
+        issue.title.toLowerCase().includes(searchValue),
+      );
+      displayAllIssues(filterIssues);
+    });
+});

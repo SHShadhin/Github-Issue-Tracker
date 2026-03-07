@@ -43,9 +43,9 @@
               <path d="m21 21-4.3-4.3"></path>
             </g>
           </svg>
-          <input type="search" required placeholder="Search issues..." />
+          <input id="search-input" type="search" required placeholder="Search issues..." />
         </label>
-        <button class="btn btn-primary">+ New Issue</button>
+        <button id="search-btn" class="btn btn-primary">+ New Issue</button>
       </div>
    </header>
 
@@ -79,6 +79,11 @@
             <p>Closed</p>
           </div>
         </div>
+      </div>
+
+      <!-- loading spinner -->
+      <div id="loadingSpinner" class="flex hidden justify-center items-center h-[50vh]">
+        <span class="loading loading-dots loading-xl"></span>
       </div>
     </section>
     

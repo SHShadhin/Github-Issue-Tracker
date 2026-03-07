@@ -16,4 +16,3 @@ document.getElementById('sign-btn').addEventListener('click', function () {
     return;
   }
 })
-
