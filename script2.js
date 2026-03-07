@@ -1,3 +1,21 @@
+// button togling
+const btns = document.querySelectorAll('#allBtns .btn');
+btns.forEach(button => {
+  // console.log(button)
+  button.addEventListener('click', function () {
+    btns.forEach(b => {
+      b.classList.remove('btn-primary')
+      b.classList.add('btn-outline')
+    })
+    button.classList.add('btn-primary');
+    button.classList.remove('btn-outline');
+  })
+})
+
+// issues filtering 
+const openBtn = document.getElementById('open-btn');
+const closeBtn = document.getElementById('close-btn');
+
 const loadAllIssues = () => {
   fetch('https://phi-lab-server.vercel.app/api/v1/lab/issues')
     .then(res => res.json())
@@ -11,15 +29,7 @@ const displayAllIssues = allIssues => {
   //   "title": "Fix navigation menu on mobile devices",
   // "description": "The navigation menu doesn't collapse properly on mobile devices. Need to fix the responsive behavior.",
   // "status": "open",
-  // "labels": [
-  // "bug",
-  // "help wanted"
-  // ],
-  // "priority": "high",
-  // "author": "john_doe",
-  // "assignee": "jane_smith",
-  // "createdAt": "2024-01-15T10:30:00Z",
-  // "updatedAt": "2024-01-15T10:30:00Z"
+ 
   allIssues.forEach(issues => {
     const div = document.createElement('div');
     div.innerHTML = `<div class="card w-96 h-full bg-base-100 shadow-sm">
