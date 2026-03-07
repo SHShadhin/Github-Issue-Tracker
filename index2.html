@@ -79,6 +79,63 @@
       <!-- all card dynamically added here -->
      </div>
 
+     
+    
+    <!-- Modal -->
+    <dialog id="issue_modal" class="modal">
+      <div class="modal-box max-w-3xl">
+    
+        <!-- Title -->
+        <h2 id="modalTitle" class="text-2xl font-bold mb-2">
+          Fix broken image uploads
+        </h2>
+    
+        <!-- Status + Author -->
+        <div class="flex items-center gap-3 text-sm text-gray-500 mb-4">
+          <span id="modalStatus" class="badge badge-success text-white">Opened</span>
+          <span>• Opened by <span id="authorModal">Fahim Ahmed</span></span>
+          <span>• 22/02/2026</span>
+        </div>
+    
+        <!-- Labels -->
+        <div class="flex gap-2 mb-5">
+          <span id="bugModal" class="badge badge-error badge-outline bg-orange-300 text-black">BUG</span>
+          <span id="bugModal2" class="badge badge-warning badge-outline bg-orange-300 text-black">HELP WANTED</span>
+        </div>
+    
+        <!-- Description -->
+        <p id="modalDesc" class="text-gray-500 mb-6">
+          The navigation menu doesn't collapse properly on mobile devices.
+          Need to fix the responsive behavior.
+        </p>
+    
+        <!-- Info Box -->
+        <div class="bg-gray-100 p-4 rounded-lg flex justify-start gap-60 mb-6">
+    
+          <div>
+            <p class="text-gray-500 text-sm">Assignee:</p>
+            <p id="assignModal" class="font-semibold ">Fahim Ahmed</p>
+          </div>
+    
+          <div>
+            <p  class="text-gray-500 text-sm">Priority:</p>
+            <span id="modalPriority" class="badge badge-error text-white">HIGH</span>
+          </div>
+    
+        </div>
+    
+        <!-- Close Button -->
+        <div class="modal-action">
+          <form method="dialog">
+            <button class="btn btn-primary border-none">
+              Close
+            </button>
+          </form>
+        </div>
+    
+      </div>
+    </dialog>
+
 
      <script src="script2.js"></script>
 </body>
