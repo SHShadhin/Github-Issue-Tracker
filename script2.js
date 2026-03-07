@@ -34,10 +34,20 @@ const displayAllIssues = (allIssues) => {
   issueCount.textContent = allIssues.length; // issues count er man update kora hoise
 
   allIssues.forEach(issues => {
+
+    // change border color of issues
+    if (issues.status.toLowerCase() === 'open') {
+      borderColor = 'border-t-6 border-green-500 rounded-lg';
+    } else {
+      borderColor = 'border-t-6 border-purple-500 rounded-lg';
+    }
+
+    //create new element
     const div = document.createElement('div');
-    div.innerHTML = `<div class="card w-96 h-full bg-base-100 shadow-sm">
-        <div class="card-body">
-          <div class="flex justify-between items-center">
+    div.classList.add('card', 'w-96', 'h-full', 'bg-base-100', 'shadow-sm');
+    div.innerHTML = `
+        <div class="card-body ${borderColor}">
+          <div class="flex justify-between items-center ">
             <div>
               <img src="assets/Open-Status.png" alt="">
             </div>
@@ -62,7 +72,7 @@ const displayAllIssues = (allIssues) => {
           </div>
 
         </div>
-      </div>`;
+      `;
 
     allIssueContainer.appendChild(div);
   });
@@ -76,6 +86,7 @@ loadAllIssues();
 const allbtn = document.getElementById('all-btn');
 allbtn.addEventListener('click', () => {
   displayAllIssues(allIssues);
+  
 });
 // Open button
 const openBtn = document.getElementById('open-btn');
