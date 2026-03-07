@@ -1,3 +1,4 @@
+// sign in 
 document.getElementById('sign-btn').addEventListener('click', function () {
   const textInput = document.getElementById('text-input');
   const userInput = textInput.value;
@@ -11,7 +12,8 @@ document.getElementById('sign-btn').addEventListener('click', function () {
     window.location.assign("index2.html");
 
   } else {
-    alert('login failed')
+    alert('Incorrect username or password')
     return;
   }
 })
+

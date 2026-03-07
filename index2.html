@@ -43,18 +43,18 @@
 
    <!-- All buttons -->
    <section>
-    <div class="max-w-9/12 mt-16 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
-        <div class="flex gap-3">
-          <button class="btn btn-primary">All</button>
-          <button class="btn btn-outline">Open</button>
-          <button class="btn btn-outline">Closed</button>
+    <div class="max-w-10/12 mt-16 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+        <div id="allBtns" class="flex gap-3">
+          <button id="all-btn" class="btn btn-primary">All</button>
+          <button id="open-btn" class="btn btn-outline">Open</button>
+          <button id="close-btn" class="btn btn-outline">Closed</button>
         </div>
     </div>
    </section>
 
    <!-- All issues -->
     <section>
-      <div class="max-w-9/12 mt-5 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
+      <div class="max-w-10/12 mt-5 mx-auto bg-white shadow-sm py-5 px-10 rounded-lg">
         <div class="flex gap-3 justify-between">
           <div class="flex items-center gap-4">
             <img src="assets/Aperture.png" alt="">
@@ -74,6 +74,13 @@
       </div>
     </section>
     
+    <!-- All cards -->
+     <div id="all-issue-container" class="bg-slate-50 py-10 px-5 max-w-10/12 mx-auto grid grid-cols-3 gap-y-4">
+      <!-- all card dynamically added here -->
+     </div>
+
+
+     <script src="script2.js"></script>
 </body>
 
 </html>
