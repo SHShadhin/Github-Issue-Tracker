@@ -55,17 +55,10 @@ const displayAllIssues = allIssues => {
     } else {
       borderColor = 'border-t-6 border-purple-500 rounded-lg';
     }
-
     //create new element
     const div = document.createElement('div');
-    div.classList.add(
-      'card',
-      'w-80',
-      'h-full',
-      'bg-base-100',
-      'shadow-sm',
-      'gap-6',
-    );
+    div.classList.add('card', 'w-80', 'h-full', 'bg-base-100', 'shadow-sm', 'gap-6');
+    
     div.innerHTML = `
         <div class="card-body ${borderColor}" onclick="openModal(${issues.id})">
           <div class="flex justify-between items-center ">
@@ -97,40 +90,58 @@ const displayAllIssues = allIssues => {
 
     allIssueContainer.appendChild(div);
   });
-  // hideLoading(); // render sesh hole spinner hide
 };
 
 loadAllIssues();
 
-// issues filtering
-// all button
+
+// all button issue filtering and show and hide spinner 
+
 const allbtn = document.getElementById('all-btn');
+
 allbtn.addEventListener('click', () => {
-  showLoading(); // spinner dekhabe
-  displayAllIssues(allIssues);
-  hideLoading();
-});
-// Open button
-const openBtn = document.getElementById('open-btn');
-openBtn.addEventListener('click', () => {
-  showLoading(); // spinner dekhabe
-  const openIssues = allIssues.filter(
-    issue => issue.status.toLowerCase() === 'open',
-  );
-  displayAllIssues(openIssues); // filtered display
-  hideLoading();
+  showLoading();
+
+  setTimeout(() => {
+    displayAllIssues(allIssues);
+    hideLoading();
+  }, 500);
 });
 
-// Close button
-const closeBtn = document.getElementById('close-btn');
-closeBtn.addEventListener('click', () => {
-  showLoading(); // spinner dekhabe
-  const closedIssues = allIssues.filter(
-    issue => issue.status.toLowerCase() === 'closed',
-  );
-  displayAllIssues(closedIssues);
-  hideLoading();
+
+// Open button
+const openBtn = document.getElementById('open-btn');
+
+openBtn.addEventListener('click', () => {
+  showLoading();
+
+  setTimeout(() => {
+    const openIssues = allIssues.filter(
+      issue => issue.status.toLowerCase() === 'open'
+    );
+
+    displayAllIssues(openIssues);
+    hideLoading();
+  }, 500);
 });
+
+
+// close button
+const closeBtn = document.getElementById('close-btn');
+
+closeBtn.addEventListener('click', () => {
+  showLoading();
+
+  setTimeout(() => {
+    const closedIssues = allIssues.filter(
+      issue => issue.status.toLowerCase() === 'closed',
+    );
+
+    displayAllIssues(closedIssues);
+    hideLoading();
+  }, 500);
+});
+
 
 // for modal details
 const issueModal = document.getElementById('issue_modal');
