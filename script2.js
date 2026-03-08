@@ -57,7 +57,7 @@ const displayAllIssues = allIssues => {
     }
     //create new element
     const div = document.createElement('div');
-    div.classList.add('card', 'w-80', 'h-full', 'bg-base-100', 'shadow-sm', 'gap-6');
+    div.classList.add('card', 'w-80', 'mx-auto', 'flex', 'justify-center', 'h-full', 'bg-base-100', 'shadow-sm','gap-y-4', 'md:gap-y-6');
     
     div.innerHTML = `
         <div class="card-body ${borderColor}" onclick="openModal(${issues.id})">
