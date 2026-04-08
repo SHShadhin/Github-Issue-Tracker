@@ -1,29 +1,36 @@
-# 1️⃣ What is the difference between var, let, and const?
-Ans: 
-1. Var is a function scope. It can be re-declared and reassigned, and hoisted, moves to the top of the scope.
+# Github Issue Tracker Website
+## 📖 Description
+Issue Insight Tracker is a dynamic, front-end dashboard built to streamline the process of monitoring and managing project tasks. This application mimics a real-world GitHub issue interface, providing a secure entry point via an administrative login and a responsive workspace for tracking progress.
 
-2. Let is block-scoped, it can not be redeclared and but can be reassigned. It hosted, but it gives temporal dead zone error.
+The project focuses on efficient data handling—loading issues dynamically and allowing users to filter through them based on status (Open or Closed) or via a real-time search bar. With a clean, Figma-inspired UI, the tracker uses visual cues like color-coded top borders (Green for Open, Purple for Closed) to help developers quickly assess the state of their workflow. It is fully optimized for all screen sizes, ensuring that project management remains accessible whether on a desktop or a mobile device.
+## ⚙️ Technologies Used   
+- Tailwind CSS  
+- DaisyUI  
+- JavaScript (ES6+)  
+- DOM 
+- JSON (Product Data)  
 
-3. Const is block scoped, cannot be redeclared and reassigned. It hosted, but it gives temporal dead zone error.
+## ✨ Features
+### 🛍️ Secure Administrative Access:
+The application features a dedicated login gateway that requires specific demo credentials (admin / admin123) to access the dashboard, ensuring a controlled environment for managing project data.
+### 🔄 Dynamic Status Filtering:
+Users can instantly toggle between "All", "Open", and "Closed" issues. The interface updates dynamically to show relevant issue counts and uses color-coded visual cues—green top borders for open tasks and purple for closed ones—to provide immediate status recognition.
+### 🔔 Real-Time Search and Detailed Insights:
+The dashboard includes an integrated search bar that filters issues as you type. Each issue card is interactive; clicking on one opens a comprehensive modal displaying all relevant metadata, including the author, priority level, labels, and creation timestamps.
 
+## 💻 How to Run Locally
+### ১. প্রথমে আপনার টার্মিনাল বা কমান্ড প্রম্পটে নিচের কমান্ডটি লিখুন:
+git clone https://github.com/SHShadhin/Github-Issue-Tracker.git
 
-# 2️⃣ What is the spread operator (...)?
-Ans: It can copy or merge arrays.It is often used to copy or update objects.
+### ২. প্রজেক্ট ডিরেক্টরিতে প্রবেশ করুন:
+cd Github-Issue-Tracker
+### ৩. ব্রাউজারে ওপেন করুন:
+- সরাসরি index.html ফাইলটি যেকোনো ব্রাউজারে ওপেন করুন।
+- অথবা, আপনি যদি VS Code ব্যবহার করেন, তাহলে Live Server এক্সটেনশনটি ব্যবহার করে প্রজেক্টটি লাইভ রান করতে পারেন।
+### ৪. লগইন তথ্য:
+- Username: admin
+- Password: admin123
 
+## 🚀 Live Link  
 
-# 3️⃣ What is the difference between map(), filter(), and forEach()?
-Ans:
-1. map() is used to transform each element of an array and returns a new array.
-2. filter() is used to filter specific elements and returns a new array.
-3. forEach() is used to run a function for each array element, but it does not return a new array.
-
-
-# 4️⃣ What is an arrow function?
-Ans: Arrow Function is a shorter way to write a function.If there is only one parameter, parentheses are optional.If function has no parameter then must be used empty parentheses.
-
-
-
-# 5️⃣ What are template literals?
-Ans:
-1. Template literals use backticks (``).
-2. It make it easier to insert variables and write multi-line strings.
+👉 https://github-issue-tracker-search.netlify.app/
