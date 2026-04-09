@@ -9,6 +9,10 @@ The project focuses on efficient data handling—loading issues dynamically and 
 - JavaScript (ES6+)  
 - DOM 
 - JSON (Product Data)  
+## 📸 Preview
+
+<img src="https://i.ibb.co.com/F4mnHGdH/p1.png">
+<img src="https://i.ibb.co.com/1GYXxnmR/p2.png">
 
 ## ✨ Features
 ### 🛍️ Secure Administrative Access:
